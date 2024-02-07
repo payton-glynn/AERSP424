@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+// test git bash
 int main()
 {
 	// start by initializing variables and their data type

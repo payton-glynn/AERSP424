@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-// test git bash
+
 int main()
 {
 	// start by initializing variables and their data type
@@ -79,6 +79,7 @@ int main()
 			weight = empty_weight + front_occupant_1 + front_occupant_2 + rear_occupant_1 + rear_occupant_2 + usable_fuel_weight + bag_weight;
 			CG = (empty_weight_moment + ((front_occupant_1 + front_occupant_2) * front_moment_arm) + ((rear_occupant_1 + rear_occupant_2) * rear_moment_arm) + (usable_fuel_weight * fuel_moment_arm) + (bag_weight * bag_moment_arm)) / weight;
 		}
+		cout << "The amount of fuel drained is: " << 44 - usable_fuel << endl;
 	}
 	// cases that need to add fuel
 	if (CG < 82.1 && fuel_moment_arm > 82.1 || CG > 84.7 && fuel_moment_arm < 84.7)
@@ -90,13 +91,9 @@ int main()
 			weight = empty_weight + front_occupant_1 + front_occupant_2 + rear_occupant_1 + rear_occupant_2 + usable_fuel_weight + bag_weight;
 			CG = (empty_weight_moment + ((front_occupant_1 + front_occupant_2) * front_moment_arm) + ((rear_occupant_1 + rear_occupant_2) * rear_moment_arm) + (usable_fuel_weight * fuel_moment_arm) + (bag_weight * bag_moment_arm)) / weight;
 		}
+		cout << "The amount of fuel added is: " << usable_fuel - 44 << endl;
 	}
-	//int numb;
-	//cout << "Enter a number: ";
-	//cin >> numb;
 
-	cout << "The amount of usable fuel is: " << usable_fuel << " gallons" << endl;
-	cout << "The amount of fuel drained is: " << 44 - usable_fuel << endl;
 	cout << "Total aircraft gross weight is: " << weight << " pounds" << endl;
 	cout << "The aircraft center of gravity is: " << CG << " inches" << endl;
 

@@ -79,7 +79,7 @@ int main()
 			weight = empty_weight + front_occupant_1 + front_occupant_2 + rear_occupant_1 + rear_occupant_2 + usable_fuel_weight + bag_weight;
 			CG = (empty_weight_moment + ((front_occupant_1 + front_occupant_2) * front_moment_arm) + ((rear_occupant_1 + rear_occupant_2) * rear_moment_arm) + (usable_fuel_weight * fuel_moment_arm) + (bag_weight * bag_moment_arm)) / weight;
 		}
-		cout << "The amount of fuel drained is: " << 44 - usable_fuel << endl;
+		cout << "The amount of fuel drained is: " << 44 - usable_fuel << " gallons" << endl;
 	}
 	// cases that need to add fuel
 	if (CG < 82.1 && fuel_moment_arm > 82.1 || CG > 84.7 && fuel_moment_arm < 84.7)
@@ -91,7 +91,7 @@ int main()
 			weight = empty_weight + front_occupant_1 + front_occupant_2 + rear_occupant_1 + rear_occupant_2 + usable_fuel_weight + bag_weight;
 			CG = (empty_weight_moment + ((front_occupant_1 + front_occupant_2) * front_moment_arm) + ((rear_occupant_1 + rear_occupant_2) * rear_moment_arm) + (usable_fuel_weight * fuel_moment_arm) + (bag_weight * bag_moment_arm)) / weight;
 		}
-		cout << "The amount of fuel added is: " << usable_fuel - 44 << endl;
+		cout << "The amount of fuel added is: " << usable_fuel - 44 << " gallons" << endl;
 	}
 
 	cout << "Total aircraft gross weight is: " << weight << " pounds" << endl;
@@ -99,14 +99,3 @@ int main()
 
 	return 0;
 }
-
-// SCENARIOS 
-// CG in front of fore limit AND fuel moment arm in front fore limit AND fuel in front of CG		DRAIN FUEL
-// CG behind aft limit AND fuel moment arm behind aft limit AND fuel behind CG						DRAIN FUEL
-// 
-// CG in front of fore limit AND fuel moment arm within limit				ADD FUEL
-// CG in front of fore limit AND fuel moment arm behind aft limit			ADD FUEL
-// CG behind aft limit AND fuel moment arm in front of fore limit			ADD FUEL
-// CG behind aft limit AND fuel moment arm in within limit					ADD FUEL
-
-// GETS COMPLICATED WHEN CG PASSES OVER THE FUEL LOCATION

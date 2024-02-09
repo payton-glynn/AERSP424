@@ -19,12 +19,20 @@ private:				// private members can only be accessed within the class
 	*/
 
 public:					// public members can be accessed from outside the class
-	plane();				// constructor function
-
-	void operate(double dt)				// void function because it is not meant to return anything
+	plane()				// constructor function
 	{
 
 	}
+
+	~plane()				// destructor function
+	{				
+		
+	}
+
+	void operate(double dt)				// void function because it is not meant to return anything
+	{
+	}
+
 	// Get functions
 	double getPos() const {
 		return pos;

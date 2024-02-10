@@ -13,10 +13,10 @@ private:											// not needed because a class is normally private										//
 	bool at_SCE;
 	string origin;
 	string destination;
-	/*
-	std::map<std::string, std::map<std::string, double>> flight_length;
-	flight_length["SCE"]["PHL"] = 160;			// container from question 2
-	*/
+	
+	//std::map<std::string, std::map<std::string, double>> flight_length;
+	//flight_length["SCE"]["PHL"] = 160;			// container from question 2
+	
 
 public:												// public members can be accessed from outside the class
 	plane(const string& from, const string& to)		// constructor function

@@ -1,4 +1,5 @@
 // plane class header file
+#include <iostream>
 #include <string>
 #include <map>
 #pragma once										// ensures the header file is only included once during compilation
@@ -14,14 +15,15 @@ private:											// not needed because a class is normally private										//
 	string origin;
 	string destination;
 	
-	//std::map<std::string, std::map<std::string, double>> flight_length;
-	//flight_length["SCE"]["PHL"] = 160;			// container from question 2
+	// container from question 2
+	std::map<std::string, std::map<std::string, double>> flight_length;
 	
 
 public:												// public members can be accessed from outside the class
 	plane(const string& from, const string& to)		// constructor function
 	{
 			// DOES THE CONSTRUCTOR NEED ANYTHING HERE?
+		flight_length["SCE"]["PHL"] = 160;
 	}
 
 	~plane()										// destructor function

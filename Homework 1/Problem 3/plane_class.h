@@ -22,7 +22,6 @@ private:											// not needed because a class is normally private										//
 public:												// public members can be accessed from outside the class
 	plane(const string& from, const string& to)		// constructor function
 	{
-			// DOES THE CONSTRUCTOR NEED ANYTHING HERE?
 		flight_length["SCE"]["PHL"] = 160;
 	}
 
@@ -63,6 +62,5 @@ public:												// public members can be accessed from outside the class
 	// Set function
 	void setVel(double vel)  
 	{
-		// DO I NEED ANYTHING HERE?
 	}
 };

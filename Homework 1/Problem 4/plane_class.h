@@ -28,7 +28,7 @@ public:												// public members can be accessed from outside the class
 
 		distance = flight_length[from][to];			// sets the value of distance variable to the distance between the airports
 
-		cout << "Plane Created at " << &plane << endl;			// printing out the memory address where the plane object is stored
+		cout << "Plane Created at " << this << endl;			// printing out the memory address where the plane object is stored
 	}
 
 	~plane()										// destructor function that prints out "Plane Destroyed"
@@ -38,6 +38,15 @@ public:												// public members can be accessed from outside the class
 
 	void operate(double dt)							// void function because it is not meant to return anything
 	{
+		if (pos < distance)
+		{
+			pos += vel * dt;
+			at_SCE = 0;
+		}
+		else
+		{
+			destination == "SCE"
+		}
 	}
 
 	// Get functions

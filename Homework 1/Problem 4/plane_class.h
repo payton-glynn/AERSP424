@@ -45,7 +45,22 @@ public:												// public members can be accessed from outside the class
 		}
 		else
 		{
-			destination == "SCE"
+			if (destination == "SCE")
+			{
+				at_SCE = 1;
+				// swap value of origin and destination
+				string temp = origin;
+				origin = destination;
+				destination = temp;
+			}
+			else
+			{
+				// swap value of origin and destination
+				string temp2 = origin;
+				origin = destination;
+				destination = temp2;
+			}
+			pos = 0.0;
 		}
 	}
 

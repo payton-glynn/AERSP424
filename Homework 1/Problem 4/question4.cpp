@@ -3,6 +3,6 @@ using namespace std;
 
 int main()
 {
-	cout << "Hello World" << endl;
+	// refer to plane_class header file for problem 4
 	return 0;
 }

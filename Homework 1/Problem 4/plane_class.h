@@ -7,7 +7,8 @@ using namespace std;								// use this so I do not have to type out 'std::' eve
 
 class plane {										// creating a class named plane
 
-private:											// not needed because a class is normally private										// private members can only be accessed within the class
+private:											// not needed because a class is normally private										
+													// private members can only be accessed within the class
 	double pos;
 	double vel;
 	double distance;
@@ -37,9 +38,9 @@ public:												// public members can be accessed from outside the class
 	}
 
 	void operate(double dt)							// void function because it is not meant to return anything
-	{
+	{												// run through the logic provided by the flowchart
 		if (pos < distance)
-		{
+		{											
 			pos += vel * dt;
 			at_SCE = 0;
 		}
@@ -93,6 +94,5 @@ public:												// public members can be accessed from outside the class
 	// Set function
 	void setVel(double vel)
 	{
-		// DO I NEED ANYTHING HERE?
 	}
 };

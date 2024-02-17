@@ -26,7 +26,6 @@ public:
 		return name;
 	}
 
-	// POINTER 
 	plane* myPlane;
 };
 

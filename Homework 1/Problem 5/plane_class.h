@@ -39,7 +39,7 @@ public:												// public members can be accessed from outside the class
 
 	void operate(double dt)							// void function because it is not meant to return anything
 	{												// run through the logic provided by the flowchart
-		if (pos < distance)
+		if (pos + vel * dt <= distance)
 		{											
 			pos += vel * dt;
 			at_SCE = 0;
@@ -50,9 +50,11 @@ public:												// public members can be accessed from outside the class
 			{
 				at_SCE = 1;
 				// swap value of origin and destination
-				string temp = origin;
+				string temp1 = origin;
 				origin = destination;
-				destination = temp;
+				destination = temp1;
+				pos = 0.0;
+
 			}
 			else
 			{
@@ -60,39 +62,41 @@ public:												// public members can be accessed from outside the class
 				string temp2 = origin;
 				origin = destination;
 				destination = temp2;
+				pos = 0.0;
+
 			}
-			pos = 0.0;
 		}
 	}
 
 	// Get functions
-	double getPos() const
+	double getPos() 
 	{
 		return pos;
 	}
 
-	double getVel() const
+	double getVel() 
 	{
 		return vel;
 	}
 
-	string getOrigin() const
+	string getOrigin() 
 	{
 		return origin;
 	}
 
-	string getDestination() const
+	string getDestination() 
 	{
 		return destination;
 	}
 
-	bool getAt_SCE() const
+	bool getAt_SCE() 
 	{
 		return at_SCE;
 	}
 
 	// Set function
-	void setVel(double vel)
+	void setVel(double new_vel)
 	{
+		vel = new_vel;					// allows velocity to get updated every iteration
 	}
 };

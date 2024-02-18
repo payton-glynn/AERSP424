@@ -1,6 +1,7 @@
 // pilot class header file
 #include <iostream>
 #include <string>
+#include "plane_class.h"
 #pragma once										// ensures the header file is only included once during compilation
 using namespace std;								// use this so I do not have to type out 'std::' every time
 
@@ -26,6 +27,7 @@ public:
 		return name;
 	}
 
-	plane* myPlane;
+
+	plane* myPlane;									// pointer named myPlane to an object of plane class
 };
 

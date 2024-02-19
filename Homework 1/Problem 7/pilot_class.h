@@ -11,7 +11,7 @@ private:
 	string name;
 
 public:
-	Pilot()											// pilot contstructor
+	Pilot(string name)											// pilot contstructor
 	{
 		cout << "The pilot's name is " << name << ". The memory address is: " << this;
 		cout << ". The pilot is at the gate and ready to board the plane." << endl;

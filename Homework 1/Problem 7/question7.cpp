@@ -15,9 +15,8 @@ int main()
 	dt = dt / 3600;								// convert time step to hours
 	int max_iter = 1500;						// maximum number of iterations
 
-	Pilot pilot;
-	pilot.getName();
-	cout << pilot.myPlane << endl;
+	Pilot pilot("Alpha");
+	
 
 	return 0;
 }

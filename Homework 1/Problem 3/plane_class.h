@@ -1,11 +1,11 @@
-// plane class header file
+// Plane class header file
 #include <iostream>
 #include <string>
 #include <map>
 #pragma once										// ensures the header file is only included once during compilation
-using namespace std;								// us this so I do not have to type out 'std::' every time
+using namespace std;								// use this so I do not have to type out 'std::' every time
 
-class plane {										// creating a class named plane
+class Plane {										// creating a class named Plane
 
 private:											// not needed because a class is normally private										// private members can only be accessed within the class
 	double pos;			
@@ -20,12 +20,12 @@ private:											// not needed because a class is normally private										//
 	
 
 public:												// public members can be accessed from outside the class
-	plane(const string& from, const string& to)		// constructor function
+	Plane(const string& from, const string& to)		// constructor function
 	{
 		flight_length["SCE"]["PHL"] = 160;
 	}
 
-	~plane()										// destructor function
+	~Plane()										// destructor function
 	{				
 	}
 

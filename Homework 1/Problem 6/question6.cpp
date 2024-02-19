@@ -5,6 +5,6 @@
 
 int main()
 {
-	std::cout << "see pilot_class.h " << std::endl;
+	std::cout << "see pilot_class.h and plane_class.h" << std::endl;
 	return 0;
 }

@@ -14,19 +14,19 @@ int main()
 
 	
 
-	plane obj("SCE", "ORD");					// instantiate plane class to go from state college to chicago
-	obj.setVel(410);							// flight speed (miles per hour)
-	double dt = 15;								// time step (seconds)
+	Plane plane("SCE", "ORD");					// instantiate plane class to go from state college to chicago
+	plane.setVel(425);							// flight speed (miles per hour)
+	double dt = 50;								// time step (seconds)
 	dt = dt / 3600;								// convert time step to hours
-	int max_iter = 1500;						// maximum number of iterations
+	int max_iter = 1200;						// maximum number of iterations
 	
-	pilot_in_command->myPlane = &obj;			// assigns plane to the pilot in command
+	pilot_in_command->myPlane = &plane;			// assigns plane to the pilot in command
 
 	for (int iter = 0; iter <= max_iter; ++iter)
 	{
-		obj.operate(dt);
+		plane.operate(dt);
 
-		if ( obj.getAt_SCE())					// checks to see if the plane is at SCE airport
+		if ( plane.getAt_SCE())					// checks to see if the plane is at SCE airport
 		{
 			cout << "The plane " << (*pilot_in_command).myPlane << " is at SCE" << endl;
 			cout << "Pilot " << (*pilot_in_command).getName() << " with certificate number " << pilot_in_command << " is in control of a plane: " << pilot_in_command->myPlane << endl;

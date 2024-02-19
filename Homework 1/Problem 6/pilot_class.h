@@ -28,6 +28,6 @@ public:
 	}
 
 
-	plane* myPlane;									// pointer named myPlane to an object of plane class
+	Plane* myPlane;									// pointer named myPlane to an object of plane class
 };
 

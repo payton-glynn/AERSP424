@@ -1,4 +1,4 @@
-// pilot class header file
+// Pilot class header file
 #include <iostream>
 #include <string>
 #include "plane_class.h"
@@ -29,6 +29,6 @@ public:
 	}
 
 
-	plane* myPlane;									// pointer named myPlane to an object of plane class
+	Plane* myPlane;									// pointer named myPlane to an object of plane class
 };
 

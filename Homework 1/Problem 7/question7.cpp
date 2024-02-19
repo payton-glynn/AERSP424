@@ -9,13 +9,13 @@ using namespace std;
 
 int main()
 {
+	Pilot pilot("Alpha");
+
 	plane obj("SCE", "ORD");					// instantiate plane class to go from state college to chicago
 	obj.setVel(410);							// flight speed (miles per hour)
 	double dt = 15;								// time step (seconds)
 	dt = dt / 3600;								// convert time step to hours
 	int max_iter = 1500;						// maximum number of iterations
-
-	Pilot pilot("Alpha");
 	
 
 	return 0;

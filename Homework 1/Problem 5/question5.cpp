@@ -13,8 +13,16 @@ int main()
 	
 	for (int iter = 0; iter <= max_iter; ++iter)
 	{
-		plane.operate(dt);
-			std::cout << "Time: " << dt*3600*iter << ", " << "Position: " << plane.getPos() << " miles." << std::endl;
+		if (iter == 0)
+		{
+			plane.operate(dt * 0);
+			std::cout << "Time: " << dt * 0 * iter << ", " << "Position: " << plane.getPos() << " miles." << std::endl;
+		}
+		else {
+
+			plane.operate(dt);
+			std::cout << "Time: " << dt * 3600 * iter << ", " << "Position: " << plane.getPos() << " miles." << std::endl;
+		}
 	}
 
 	return 0;

@@ -1,0 +1,34 @@
+// Pilot class header file
+#include <iostream>
+#include <string>
+#include "plane_class.h"
+#pragma once										// ensures the header file is only included once during compilation
+using namespace std;								// use this so I do not have to type out 'std::' every time
+
+class Pilot {
+
+private:
+	string name;
+
+public:
+	Pilot(string name)											// pilot contstructor
+	{
+		this->name = name;
+		cout << "The pilot's name is " << name << ". The memory address is: " << this;
+		cout << ". The pilot is at the gate and ready to board the plane." << endl;
+	}
+
+	~Pilot()										// pilot destructor
+	{
+		cout << "The pilot's name is " << name << ". The pilot is out of the plane." << endl;
+	}
+
+	string getName()								// get function
+	{
+		return name;
+	}
+
+
+	Plane* myPlane;									// pointer named myPlane to an object of plane class
+};
+

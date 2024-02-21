@@ -1,3 +1,4 @@
+// changing to modern style pointers
 #include <iostream>
 #include <string>
 #include <map>
@@ -17,11 +18,11 @@ int main() {
 	double dt = 50 / 3600.0;
 	int max_iter = 1200;
 
-	//pilot_in_command->myPlane = &plane;
-
 	std::unique_ptr<int> nullPtr = nullptr;
 	std::unique_ptr<Plane> myPlane;
 	myPlane.reset(&plane);
+
+	pilot_in_command->myPlane.reset(&plane);
 
 	for (int iter = 0; iter <= max_iter; ++iter) {
 		plane.operate(dt);
@@ -35,7 +36,8 @@ int main() {
 
 		if (plane.getAt_SCE()) {
 			cout << "The plane " << &plane << " is at SCE" << endl;
-			//swap(myPlane, nullPtr);
+			swap(copilot->myPlane, pilot_in_command->myPlane);
+			swap(pilot_in_command, copilot);
 			cout << "Pilot " << pilot_in_command->getName() << " with certificate number " << pilot_in_command << " is in control of a plane: " << myPlane << endl;
 			cout << "Pilot " << copilot->getName() << " with certificate number " << copilot << " is in control of a plane: " << nullPtr << endl;
 			cout << endl;

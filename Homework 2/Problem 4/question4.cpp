@@ -1,10 +1,5 @@
 #include <iostream>
 
-void operate()
-{
-
-}
-
 int main()
 {
 	std::cout << "Hello World" << std::endl;

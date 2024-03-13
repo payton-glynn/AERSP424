@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <vector>
 
 // Question 1.1
 
@@ -11,7 +12,7 @@ public:
 	virtual void gatherData() = 0;		// virtual functions like this need the = 0 at the end
 	virtual void processData() = 0;
 
-	// DO I NEED A CONSTRUCTOR OR DESTRUCTOR??
+										// DO I NEED A CONSTRUCTOR OR DESTRUCTOR??
 };
 
 // Question 1.2
@@ -94,8 +95,41 @@ public:
 	}
 };
 
+// Question 1.4
+
+class AerospaceControlSystem
+{
+private: 
+	std::vector<std::unique_ptr<Sensor>> sensors;	// this stores the sensors in a vector of unique pointers
+
+public:
+	void addSensor(std::unique_ptr<Sensor> sensor)				// CHECK IF THIS IS THE RIGHT POINTER!!
+	{
+		sensors.push_back(std::move(sensor));	// moves the sensor into the vector of sensors
+	}
+
+	void monitorAndAdjust()
+	{
+		for (const auto& sensor : sensors)
+		{
+			sensor->gatherData();
+			sensor->processData();
+			std::cout << "Adjusting controls based on sensor data" << std::endl;
+		}
+	}
+};
+
 int main()
 {
-	std::cout << "Hello World" << std::endl;
+	AerospaceControlSystem ctrlSys;		// instantiate an object from the AerospaceControlSystem class called ctrlSys
+
+	// invoke the addSensor function three different times
+	ctrlSys.addSensor(SensorFactory::createSensor("Velocity"));
+	ctrlSys.addSensor(SensorFactory::createSensor("Attitude"));
+	ctrlSys.addSensor(SensorFactory::createSensor("Heading"));
+
+	// invoke the monitorAndAdjust function once 
+	ctrlSys.monitorAndAdjust();
+
 	return 0;
 }

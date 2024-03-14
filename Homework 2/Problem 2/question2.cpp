@@ -15,6 +15,9 @@
 	// use the above logic to sort the tasks among the robots
 
 
+// IS THIS THREADING WITH OR WITHOUT RESOURCE SHARING?
+
+
 void operate()
 {
 

@@ -11,13 +11,14 @@ std::mutex m1, m2, m3, m4, m5;	// create a mutex for each of the 5 tools
 // call the function that runs everything operate
 void operate(int id, int tool_1, int tool_2)		// inputs to operate or the robot id, tool_1 and tool_2
 {
+	// I used printf instead of std::cout because printf does not mix together different threads. This creates a cleaner output. 
 	if (tool_1 == 1 && tool_2 == 5)		// logic for robot 1
 	{
 		std::lock(m1, m5);		// locks mutex m1 and m5 simultaneously
 		std::this_thread::sleep_for(std::chrono::seconds(1));
-		std::cout << "Robot " << id << " acquired tools and starts performing a task." << std::endl;
+		printf("Robot %d acquired tools and starts performing a task. \n", id);
 		std::this_thread::sleep_for(std::chrono::seconds(5));
-		std::cout << "Robot " << id << " finished the task and is returning the tools." << std::endl;
+		printf("Robot %d finished the task and is returning the tools. \n", id);
 		m1.unlock();
 		m5.unlock();
 	}
@@ -26,9 +27,9 @@ void operate(int id, int tool_1, int tool_2)		// inputs to operate or the robot 
 	{
 		std::lock(m1, m2);		// locks mutex m1 and m2 simultaneously
 		std::this_thread::sleep_for(std::chrono::seconds(1));
-		std::cout << "Robot " << id << " acquired tools and starts performing a task." << std::endl;
+		printf("Robot %d acquired tools and starts performing a task. \n", id);
 		std::this_thread::sleep_for(std::chrono::seconds(5));
-		std::cout << "Robot " << id << " finished the task and is returning the tools." << std::endl;
+		printf("Robot %d finished the task and is returning the tools. \n", id);
 		m1.unlock();
 		m2.unlock();
 	}
@@ -37,9 +38,9 @@ void operate(int id, int tool_1, int tool_2)		// inputs to operate or the robot 
 	{
 		std::lock(m2, m3);		// locks mutex m2 and m3 simultaneously
 		std::this_thread::sleep_for(std::chrono::seconds(1));
-		std::cout << "Robot " << id << " acquired tools and starts performing a task." << std::endl;
+		printf("Robot %d acquired tools and starts performing a task. \n", id);
 		std::this_thread::sleep_for(std::chrono::seconds(5));
-		std::cout << "Robot " << id << " finished the task and is returning the tools." << std::endl;
+		printf("Robot %d finished the task and is returning the tools. \n", id);
 		m2.unlock();
 		m3.unlock();
 	}
@@ -48,9 +49,9 @@ void operate(int id, int tool_1, int tool_2)		// inputs to operate or the robot 
 	{
 		std::lock(m3, m4);		// locks mutex m3 and m4 simultaneously
 		std::this_thread::sleep_for(std::chrono::seconds(1));
-		std::cout << "Robot " << id << " acquired tools and starts performing a task." << std::endl;
+		printf("Robot %d acquired tools and starts performing a task. \n", id);
 		std::this_thread::sleep_for(std::chrono::seconds(5));
-		std::cout << "Robot " << id << " finished the task and is returning the tools." << std::endl;
+		printf("Robot %d finished the task and is returning the tools. \n", id);
 		m3.unlock();
 		m4.unlock();
 	}
@@ -59,9 +60,9 @@ void operate(int id, int tool_1, int tool_2)		// inputs to operate or the robot 
 	{
 		std::lock(m4, m5);		// locks mutex m4 and m5 simultaneously
 		std::this_thread::sleep_for(std::chrono::seconds(1));
-		std::cout << "Robot " << id << " acquired tools and starts performing a task." << std::endl;
+		printf("Robot %d acquired tools and starts performing a task. \n", id);
 		std::this_thread::sleep_for(std::chrono::seconds(5));
-		std::cout << "Robot " << id << " finished the task and is returning the tools." << std::endl;
+		printf("Robot %d finished the task and is returning the tools. \n", id);
 		m4.unlock();
 		m5.unlock();
 	}

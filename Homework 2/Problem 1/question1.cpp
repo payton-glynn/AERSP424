@@ -76,15 +76,15 @@ public:
 		// checks if the sensor name matches any of the three I chose to use
 		if (sensorName == "Velocity")
 		{
-			return std::make_unique<Velocity>();
+			return std::make_unique<Velocity>();	// allocates heap memory for velocity sensor
 		}
 		else if (sensorName == "Attitude")
 		{
-			return std::make_unique<Attitude>();
+			return std::make_unique<Attitude>();	// allocates heap memory for attitude sensor
 		}
 		else if (sensorName == "Heading")
 		{
-			return std::make_unique<Heading>();
+			return std::make_unique<Heading>();		// allocates heap memory for heading sensor
 		}
 		else   // returns a null pointer if the sensor name does not match any of the three I chose to use
 		{
@@ -101,17 +101,17 @@ private:
 	std::vector<std::unique_ptr<Sensor>> sensors;	// this stores the sensors in a vector of unique pointers
 
 public:
-	void addSensor(std::unique_ptr<Sensor> sensor)				// CHECK IF THIS IS THE RIGHT POINTER!!
+	void addSensor(std::unique_ptr<Sensor> sensor)	// addSensor function that recieves pointer to sensor class
 	{
 		sensors.push_back(std::move(sensor));	// moves the sensor into the vector of sensors
 	}
 
 	void monitorAndAdjust()
 	{
-		for (const auto& sensor : sensors)
+		for (const auto& sensor : sensors)	// iterates through all sensors
 		{
-			sensor->gatherData();
-			sensor->processData();
+			sensor->gatherData();	// calls gatherData		
+			sensor->processData();	// calls processData
 			std::cout << "Adjusting controls based on sensor data" << std::endl;
 		}
 	}

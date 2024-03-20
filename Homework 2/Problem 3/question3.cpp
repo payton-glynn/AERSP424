@@ -3,50 +3,46 @@
 #include <iostream>
 #include <thread>
 #include <mutex>
-#include <condition_variable>
+#include <chrono>
 
-std::mutex m;		// create a mutex named m that will lock if three aircraft are in the traffic pattern
-std::condition_variable cv;
+
+
+std::mutex m;		
 int aircraft_in_pattern = 0;
-bool ATC_awake = false;
+int aircraft_limit = 3;
+bool ATC_awake = false;			// initially sets the ATC to not be talking to an aircraft
 
 
 // using printf instead of std::cout. Using std::cout mixes up the outputs.
 void operate(int aircraft_ID)
 {
-	std::unique_lock<std::mutex> lock(m);
 
-	while (aircraft_in_pattern >= 3 && ATC_awake)
+	if (ATC_awake == false)
 	{
-		cv.wait(lock);
-	}
+		{
+			std::unique_lock<std::mutex> lock(m);
+			ATC_awake = true;		// ATC is now awake and talking
+		}
 
-	if (!ATC_awake)
-	{
-		//printf("Aircraft # %d woke up the ATC. \n", aircraft_ID);
-		ATC_awake = true;
-	}
+		printf("Aircraft # %d requesting landing. \n", aircraft_ID);
 
-	if (aircraft_in_pattern < 3)
-	{
-		++aircraft_in_pattern;
-		printf("Aircraft # %d entering traffic pattern. \n", aircraft_ID);
-	}
-	else
-	{
-		printf("Aircraft # %d redirected to another airport. \n", aircraft_ID);
-	}
+		if (aircraft_in_pattern < aircraft_limit)		// will run if there is open room for an aircraft in the pattern
+		{
+			std::unique_lock<std::mutex> lock(m);
+			++aircraft_in_pattern;		// adds one to aircraft in the pattern
+			printf("Aircraft # %d is cleared to land. \n", aircraft_ID);
+			std::this_thread::sleep_for(std::chrono::seconds(1));
+			printf("Runway is now free. \n");
+			--aircraft_in_pattern;		// subtracts one to aircraft in pattern because the aircraft has now landed
+		}
+		else          // runs if there are too many aircraft in the pattern
+		{
+			printf("Approach pattern full. Aircraft # %d redirected to another airport. \n", aircraft_ID);
+			printf("Aircraft # %d flying to another airport. \n", aircraft_ID);
+		}
 
-	std::this_thread::sleep_for(std::chrono::seconds(1));
-
-	--aircraft_in_pattern;
-	if (aircraft_in_pattern == 0)
-	{
-		ATC_awake = false;
-		//printf("ATC fell asleep. \n");
 	}
-
-	cv.notify_all();
+	
 
 	//if ( 1 )		// conditions to land
 	//{
@@ -65,17 +61,7 @@ void operate(int aircraft_ID)
 
 int main()
 {
-	std::thread aircraft_threads[10];
 
-	for (int i = 0; i < 10; ++i)
-	{
-		aircraft_threads[i] = std::thread(operate, i + 1);
-	}
-
-	for (int i = 0; i < 10; ++i)
-	{
-		aircraft_threads[i].join();
-	}
 
 	//int ID = 1;
 	//while (ID < 11)

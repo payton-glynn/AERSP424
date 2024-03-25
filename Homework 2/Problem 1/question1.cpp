@@ -22,13 +22,13 @@ public:
 	// implementation of gatherData
 	virtual void gatherData() override
 	{
-		std::cout << "Gathering data from Velocity Sensor" << std::endl;
+		std::cout << "Gathering data from Velocity Sensor." << std::endl;
 	}
 
 	// implementation of processData
 	virtual void processData() override
 	{
-		std::cout << "Processing data from Velocity Sensor" << std::endl;
+		std::cout << "Processing data from Velocity Sensor." << std::endl;
 	}
 };
 
@@ -39,13 +39,13 @@ public:
 	// implementation of gatherData
 	virtual void gatherData() override
 	{
-		std::cout << "Gathering data from Attitude Sensor" << std::endl;
+		std::cout << "Gathering data from Attitude Sensor." << std::endl;
 	}
 
 	// implementation of processData
 	virtual void processData() override
 	{
-		std::cout << "Processing data from Attitude Sensor" << std::endl;
+		std::cout << "Processing data from Attitude Sensor." << std::endl;
 	}
 };
 
@@ -56,13 +56,13 @@ public:
 	// implementation of gatherData
 	virtual void gatherData() override
 	{
-		std::cout << "Gathering data from Heading Sensor" << std::endl;
+		std::cout << "Gathering data from Heading Sensor." << std::endl;
 	}
 
 	// implementation of processData
 	virtual void processData() override
 	{
-		std::cout << "Processing data from Heading Sensor" << std::endl;
+		std::cout << "Processing data from Heading Sensor." << std::endl;
 	}
 };
 
@@ -112,7 +112,7 @@ public:
 		{
 			sensor->gatherData();	// calls gatherData		
 			sensor->processData();	// calls processData
-			std::cout << "Adjusting controls based on sensor data" << std::endl;
+			std::cout << "Adjusting controls based on sensor data." << std::endl;
 		}
 	}
 };

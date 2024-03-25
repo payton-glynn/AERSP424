@@ -2,3 +2,4 @@ From Question2, what issues may happen if the robot that finished the
 task is assigned a new task immediately? And what will be a potential
 solution for the issues?
 
+If the robot that just finished a task is assigned a new one immediately, it may run into issues with the multiple threads running and shared resources being locked. Due to the setup of the problem, each robot must have the two tools on either side of it be available before it can complete its task. When the robot completes the task, it releases the tools next to it. When these tools are released, other robots will attempt to pick them up and complete their tasks. Therefore, if two robots are attempting to reach for the same tool, a deadlock may occur. A deadlock is where two threads need to use the same resource, but cannot since that resource is locked. A potential solution for deadlocks is to use locking mechanisms such as mutual exclusions (Mutex). 

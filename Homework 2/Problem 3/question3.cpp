@@ -1,7 +1,5 @@
 // Question 3
 
-// DOUBLECHECK THIS BECAUSE I AM GETTING DIFFERENT ANSWERS EVERY TIME
-
 #include <iostream>
 #include <thread>
 #include <mutex>

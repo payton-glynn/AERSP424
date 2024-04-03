@@ -39,7 +39,6 @@ int main() {
         glEnd();
 
         glBegin(GL_POINTS);
-        // Plot parabola
         glColor3f(0.0, 1.0, 0.0);
 
         // variable to plot potential energy

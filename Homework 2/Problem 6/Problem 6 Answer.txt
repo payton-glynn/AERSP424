@@ -3,3 +3,5 @@ the program? What issues do you think will happen if some of the actions,
 e.g., waking up the ATC, checking the traffic pattern, entering the traffic
 pattern, diverging to another airport, etc., take time to finish? And what
 will be a potential solution for the issues?
+
+The issues in question 3 will be similar to those obtained in problem 2 that have to deal with threading. If the code is not written carefully, multiple threads may be attempting to access the same section of code, causing a race condition. This can occur if multiple aircraft are attempting to talk to ATC while they are already busy. Once again, a solution to this issue is to use the locking mechanism MUTEX. 
